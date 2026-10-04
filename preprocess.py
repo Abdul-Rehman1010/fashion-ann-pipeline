@@ -39,8 +39,9 @@ def load_params(params_path: Path) -> tuple[float, int]:
 
 
 def normalize(images: np.ndarray) -> np.ndarray:
-    """Scale unsigned 8-bit image pixels to float32 values in [0, 1]."""
-    return images.astype(np.float32) / 255.0
+    """Scale pixels to [0, 1] with compact four-decimal precision."""
+    scaled = images.astype(np.float32) / 255.0
+    return np.round(scaled, decimals=4)
 
 
 def save_array(output_path: Path, array: np.ndarray, root: Path) -> None:
