@@ -5,7 +5,7 @@ This project builds a reproducible, fully connected artificial neural network fo
 The workflow will use:
 
 - TensorFlow for model training and evaluation
-- Git for source-code versioning
+- Git for source code versioning
 - DVC for data, model, metric, and pipeline versioning
 - Google Drive as the DVC remote storage
 
