@@ -39,9 +39,10 @@ def load_params(params_path: Path) -> tuple[float, int]:
 
 
 def normalize(images: np.ndarray) -> np.ndarray:
-    """Scale pixels to [0, 1] with clipped six-decimal precision."""
+    """Scale pixels to [0, 1] with clipped five-decimal precision."""
     scaled = np.divide(images, np.float32(255.0), dtype=np.float32)
-    return np.clip(np.round(scaled, decimals=6), 0.0, 1.0)
+    rounded = np.round(scaled, decimals=5)
+    return np.clip(rounded, 0.0, 1.0)
 
 
 def save_array(output_path: Path, array: np.ndarray, root: Path) -> None:
